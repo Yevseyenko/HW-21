@@ -1,6 +1,5 @@
 package com.epam.Pob;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,7 +50,7 @@ public class GmailEmailPage {
         input.sendKeys("in:sent" + Keys.ENTER);
         waitForClickable(checkedBtn, driver);
         checkedBtn.click();
-        }
+    }
 
     public void deletingDeliveredMessage() throws InterruptedException {
         deleteBtn.click();
@@ -66,9 +65,10 @@ public class GmailEmailPage {
     void waitForClickable(WebElement element, WebDriver driver) {
         new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(element));
     }
-    public void verifyingSentLetter(String subject,String text){
-       Assert.assertEquals(subject, letterSubj.getText());
-       Assert.assertEquals(text,letterTxt.getText());
-   }
+
+    public void verifyingSentLetter(String subject, String text) {
+        Assert.assertEquals(subject, letterSubj.getText());
+        Assert.assertEquals(text, letterTxt.getText());
+    }
 
 }

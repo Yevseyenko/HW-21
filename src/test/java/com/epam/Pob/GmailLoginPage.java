@@ -17,11 +17,6 @@ public class GmailLoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void changingUserAndChoosingEmail() {
-     //   changeUserBtn.click();
-
-    }
-
     public void inputLoginAndSubmit(String login) {
         mailBtn.click();
         emailInput.sendKeys(login);

@@ -6,11 +6,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class DriverParameters {
-   public String webdriver = "webdriver";
-    public  String delay = "delay";
+    public String webdriver = "webdriver";
+    public String delay = "delay";
     public String driverPath = "driverpath";
     public String result = "";
-    public    InputStream inputStream;
+    public InputStream inputStream;
 
     public String getProp(String driver1) throws IOException {
 
@@ -29,7 +29,7 @@ public class DriverParameters {
             // get the property value and print it out
             String driverpath = prop.getProperty(driver1);
             result = driverpath;
-           } catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
             inputStream.close();

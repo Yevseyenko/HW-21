@@ -19,10 +19,11 @@ public class GmailPasswordPage {
 
     public void inputPasswordAndSubmit(String password, WebDriver driver) {
         passwordInput.sendKeys(password);
-        waitForClickable(passwordNextBtn,driver);
+        waitForClickable(passwordNextBtn, driver);
         passwordNextBtn.click();
     }
-    void waitForClickable(WebElement element, WebDriver driver){
+
+    void waitForClickable(WebElement element, WebDriver driver) {
         new WebDriverWait(driver, 60).until(ExpectedConditions.elementToBeClickable(element));
     }
 }
