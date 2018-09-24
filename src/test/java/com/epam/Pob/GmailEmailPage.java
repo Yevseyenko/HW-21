@@ -25,7 +25,7 @@ public class GmailEmailPage {
     private WebElement input;
     @FindBy(css = "tbody>tr.zA.yO:nth-child(1)")
     private WebElement checkedBtn;
-    @FindBy(css = "div.T-I.J-J5-Ji.nX.T-I-ax7.T-I-Js-Gs.mA>div.asa>div.ar9.T-I-J3")
+    @FindBy(xpath = "//div[@gh='mtb']/div/div[2]/div[3]")
     private WebElement deleteBtn;
 
     public GmailEmailPage(WebDriver driver) {
