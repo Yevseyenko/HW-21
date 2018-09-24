@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class GmailLoginPage {
-   // @FindBy(id = "identifierLink")
-  //  public WebElement changeUserBtn;
     @FindBy(css = "a.gb_we.gb_Aa.gb_Fb[target='_top']")
     public WebElement mailBtn;
     @FindBy(id = "identifierId")

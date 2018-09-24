@@ -20,11 +20,14 @@ public class GmailSendingTest {
         GmailLoginPage gmailLoginPage =new GmailLoginPage(driver);
         gmailLoginPage.inputLoginAndSubmit(pageParameters.getPageParams("login"));
         GmailPasswordPage gmailPasswordPage =new GmailPasswordPage(driver);
-        gmailPasswordPage.inputPasswordAndSubmit(pageParameters.getPageParams("password"));
+        gmailPasswordPage.inputPasswordAndSubmit(pageParameters.getPageParams("password"),driver);
         GmailEmailPage gmailEmailPage = new GmailEmailPage(driver);
         gmailEmailPage.writingLetterAndSubmit(pageParameters.getPageParams("receiver"),
                 pageParameters.getPageParams("subject"),
                 pageParameters.getPageParams("text"));
-        gmailEmailPage.deletingDeliveredMessage(driver);
+        gmailEmailPage.gettingSent(driver);
+        gmailEmailPage.verifyingSentLetter(pageParameters.getPageParams("subject"),
+                pageParameters.getPageParams("text"));
+        gmailEmailPage.deletingDeliveredMessage();
     }
 }
