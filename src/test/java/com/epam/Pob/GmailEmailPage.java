@@ -1,5 +1,6 @@
 package com.epam.Pob;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,11 +21,11 @@ public class GmailEmailPage {
     private WebElement textMessage;
     @FindBy(css = "div.T-I.J-J5-Ji.aoO.T-I-atl.L3[role='button']")
     private WebElement sendBtn;
-    @FindBy(css = "span#link_vsm.ag.a8k>a")
-    private WebElement sentMessages;
-    @FindBy(css = "tbody>tr.zA.yO:nth-child(1)>td>div[role='checkbox'][id=':ai']")
+    @FindBy(xpath = "//input[@class='gb_bf']")
+    private WebElement input;
+    @FindBy(css = "tbody>tr.zA.yO:nth-child(1)")
     private WebElement checkedBtn;
-    @FindBy(css = "div.T-I.J-J5-Ji.nX.T-I-ax7.T-I-Js-Gs.mA")
+    @FindBy(css = "div.T-I.J-J5-Ji.nX.T-I-ax7.T-I-Js-Gs.mA>div.asa>div.ar9.T-I-J3")
     private WebElement deleteBtn;
 
     public GmailEmailPage(WebDriver driver) {
@@ -40,11 +41,14 @@ public class GmailEmailPage {
         sendBtn.click();
     }
 
-    public void deletingDeliveredMessage(WebDriver driver) {
-        waitForVisibility(sentMessages,driver);
-        sentMessages.click();
+    public void deletingDeliveredMessage(WebDriver driver) throws InterruptedException {
+        input.sendKeys("in:sent"+Keys.ENTER);
+        waitForClickable(checkedBtn,driver);
         checkedBtn.click();
+      //  waitForVisibility(deleteBtn,driver);
+      //  Thread.sleep(3000);
         deleteBtn.click();
+
     }
     private void waitForVisibility(WebElement element, WebDriver driver) throws Error{
         new WebDriverWait(driver, 60)

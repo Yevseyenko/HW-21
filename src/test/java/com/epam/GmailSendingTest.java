@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 @Test
 public class GmailSendingTest {
-    public void sendingEmail()  {
+    public void sendingEmail() throws InterruptedException {
          DriverConfiguration config = new DriverConfiguration();
         WebDriver driver = config.configureDriver();
         PageParameters pageParameters =new PageParameters();
